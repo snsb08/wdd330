@@ -1,0 +1,27 @@
+:root {
+    --primary-color:#5D0B0D;
+    --secondary-color:#BB9762 ;
+    --font_color: white;
+    --accent-color1: #CD304A;
+    --accent-color2: #EED01C;
+    --accent-color3: #B98145;
+
+}
+body{
+    background-color: var(--secondary-color);
+    color: var(--font_color);
+}
+#content{
+    background-color: var(--primary-color);
+    width: 80%;
+    margin: 0 auto;
+    padding: 3rem;
+    
+}
+h1{
+    color: var(--secondary-color);
+    text-align: center;
+}
+a {
+    color: white;
+}

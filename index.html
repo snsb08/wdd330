@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WDD330 Portfolio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="content">
+      <h1>Sheyla's Portfolio</h1>
+      <!-- <ol>
+      <li>Week 1</li>
+      <li>Week 2</li>
+      <li>Week 3</li>
+    </ol> -->
+      <ul id="weekList"></ul>
+    </div>
+  </body>
+  <script>
+    const weekArray = [
+      { label: "Week 1", url: "./week1.html" },
+      { label: "Week 2", url: "./week2.html" },
+      { label: "Week 3", url: "./week3.html" },
+    ];
+    listWeeklyItems(weekArray, "weekList");
+    //setInterval(ListWeeklyItems, 1, weekArray, "weekList");
+
+    function listWeeklyItems(weekItems, listElementName) {
+      let ol = document.getElementById(listElementName);
+      if (ol) {
+        weekItems.forEach((element) => {
+          let anchor = document.createElement("a");
+          anchor.innerHTML = element.label;
+          anchor.href = element.url;
+          anchor.target = "_blank";
+
+          let li = document.createElement("li");
+          li.appendChild(anchor);
+
+          ol.appendChild(li);
+        });
+      }
+    }
+  </script>
+</html>
