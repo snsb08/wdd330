@@ -10,7 +10,282 @@
   <body>
     <div id="content">
       <h1>Notes for Week 2:</h1>
-      <p>Coming soon...</p>
+      <h2>JavaScript: Novice to Ninja</h2>
+      <h3>Chapter 2 Programming Basics</h3>
+      <p>
+        Comments are essential for others to understand your code. It can also
+        help you understand your own code after a few weeks. (It is something I
+        need to work on)
+      </p>
+      <p>Two ways to comment:</p>
+      <p class="expressions">
+        // Single line short comment <br /><br />
+
+        /* Multi-line comment <br />
+        That can keep going <br />
+        Until you close with */<br />
+      </p>
+      <p>
+        "JavaScript is made of a series of statements." <br />
+        "A block is a series of statements that are collected together inside
+        curly braces"
+      </p>
+      <p>
+        <strong>Reserved Words:</strong><br />
+        abstract, await, boolean, break, byte, case, catch, char, class, const,
+        continue, debugger, default, delete, do, double, else, enum, export,
+        extends, false, final, finally, float, for, function, goto, if,
+        implements, import, in instanceof, int, interface, let, long, native,
+        new, null, package, private, protected, public, return, short, static,
+        super, switch, synchronized, this, throw, throws, transient, true, try,
+        typeof, var, volatile, void, while, with, yield
+        <br />Plus: undefined, NaN, Infinity <br />
+        Reserved words cannot be used to name variables because they are used by
+        the language in some other way.
+      </p>
+      <p><strong>Seven Data Types:</strong></p>
+      <ol>
+        <li>String</li>
+        <li>Symbol</li>
+        <li>Number</li>
+        <li>Boolean</li>
+        <li>Undefined</li>
+        <li>Null</li>
+      </ol>
+      <p>
+        <strong>Typeof</strong> are special operators for finding out the type
+        of a value:
+      </p>
+      <p class="expressions">
+        typeof 'hello' <br />
+        << 'string' <br /><br />
+
+        typeof 10 <br />
+        << 'number'<br /><br />
+
+        typeof true<br />
+        << 'boolean'<br /><br />
+
+        typeof { ninja: 'turtle' }<br />
+        << 'object'<br /><br />
+
+        typeof [ 1, 2, 3 ]<br />
+        << 'object' (All non-primitive data types return a type of 'object'.)
+      </p>
+      <p>
+        To see the value of a variable, simply enter it in the console and press
+        enter. <br />
+        Multiple variables can be assigned at the same time if they are
+        separated by commas:
+      </p>
+      <p class="expressions">let x = 3, y = 4, z = 5;</p>
+      <p><strong>Scope:</strong> where the variable is visible</p>
+      <ol>
+        <li>
+          <strong>Global Scope:</strong> variable declared outside of a block
+          which is accessible everywhere in the program. Needs to be kept at
+          minimum specially in long codes or when working on a team. (global do
+          not use "let" or "const")
+        </li>
+        <li>
+          <strong>Local Scope:</strong> variable declared inside of a block
+          using "let" or "const" which is not accessible outside of that block.
+        </li>
+      </ol>
+      <p>
+        Non-primitive values: they are assigned by reference, so any changes
+        will affect all references to that object.
+      </p>
+      <p class="expressions">
+        const c = { value: 1 }; <br />
+        let d = c; // c.value = 1, d.value = 1 <br />
+        d.value = 2; // c.value = 2, d.value = 2
+      </p>
+      <p>
+        In the example above, the change to the value property of d also results
+        in the value property of c changing as well. This is because the
+        variables c and d are both referencing the same object, so any changes
+        to one of them will also affect the other.
+      </p>
+      <p>
+        <strong>Backlashes</strong> are used to escape special characters in
+        strings:
+      </p>
+      <ul>
+        <li>Single quote marks \'</li>
+        <li>Double quote marks \"</li>
+        <li>End of line \n</li>
+        <li>Carriage return \r</li>
+        <li>Tab \t</li>
+        <li>Backslash also needs another backslash \\</li>
+      </ul>
+
+      <p>
+        If you want to know which character is at a certain position, you can
+        use the charAt() method.
+      </p>
+      <p class="questions">Question: What are symbols used for?</p>
+      <p>(Review Number methods chapter when needed)</p>
+      <p>NAN = Not a Number</p>
+      <p>Best way to change string to a number:</p>
+      <p class="expressions">
+        Number('23'); <br />
+        << 23
+      </p>
+      <p>Best way to change number to a string:</p>
+      <p class="expressions">
+        String(3); <br />
+        << '3'
+      </p>
+      <p>To use a number and ignore any letters that come afterwards:</p>
+      <p class="expressions">
+        const address = '221B Baker Street';<br />
+        parseInt(address, 10)<br />
+        << 221
+      </p>
+      <p>
+        <strong>Falsy Values-</strong> 9 values that are always false in
+        Boolean:
+      </p>
+
+      <ul>
+        <li>"" // double quoted empty string literal</li>
+        <li>'' // single quoted empty string literal</li>
+        <li>`` // empty template literal</li>
+        <li>0</li>
+        <li>-0 // considered different to 0 by JavaScript!</li>
+        <li>NaN</li>
+        <li>false</li>
+        <li>null</li>
+        <li>undefined</li>
+      </ul>
+
+      <p>Try to avoid Type coercion.</p>
+      <p>Number.isNaN() is used to check if a value is NaN.</p>
+      <p>
+        Always use hard equality (===) when testing if two values are equal
+        instead of using the soft equality (==). <br />
+        Always use hard inequality (!==) for a more reliable result when
+        checking that two values are not equal.
+      </p>
+      <h3>Chapter 3 Arrays, Logic, and Loops</h3>
+      <p>
+        Arrays = [] <br />
+        When removing a value from an array using "delete", the space that value
+        occupied is still there as "undefined". The array still has the same
+        number of elements. If you want to remove it completely use the splice()
+        method with a length of 1 and without specifying any values to add.
+      </p>
+      <p>
+        Splice() can insert or remove values from an array permanently. <br />
+        <strong class="expressions"
+          >ArrayName.splice(index#, lengthRemoved, 'value');</strong
+        >
+        <br />
+
+        Slice() creates a subarray to display just a slice of the original
+        array. <br />
+
+        Sort() is done alphabetically even the numbers are sorted by digit
+        rather than numerically:
+        <strong class="expressions">[10, 5, 9].</strong>
+      </p>
+      <p class="questions">
+        Questions: what are the differences between array and sets? Are sets
+        what we use in JSON?
+      </p>
+      <p>
+        To see the values of an array without duplicates, convert the array to a
+        set. <br />
+        Sets don't show duplicates of items or even characters. <br /><br />
+
+        Maps are similar to 'dictionaries' in other programming languages. Maps
+        can use any data type as a key.
+      </p>
+      <p class="expressions">
+        if (condition) { <br />
+        // code to run if condition is true <br />
+        } else { <br />
+        // code to run if condition is false <br />
+        }
+      </p>
+      <p>
+        <strong>Ternary Operators:</strong> shorthand of if/else statement. Just
+        be careful using it as it may make the code harder to read. <br />
+        <strong class="expressions">
+          condition ? (//code to run if condition is true) : (//code to run if
+          condition is false)</strong
+        >
+      </p>
+      <p>Example:</p>
+      <p class="expressions">
+        const n = 5; <br />
+        n%2 === 0 ? console.log('n is an even number') : console.log('n is an
+        odd number'); <br />
+        << 'n is an odd number'
+      </p>
+      <p>Shorter using template string:</p>
+      <p class="expressions">
+        console.log(`n is a ${(n%2 === 0)? 'even' : 'odd'} number`);
+      </p>
+      <p><strong>Switch:</strong></p>
+      <p>
+        if (number === 4) { <br />
+        console.log('You rolled a four'); <br />
+        } else if (number === 5) { <br />
+        console.log('You rolled a five'); <br />
+        } else if(number === 6){ <br />
+        console.log('You rolled a six'); <br />
+        } else { <br />
+        console.log('You rolled a number less than four'); <br />
+        }
+      </p>
+      <p>
+        Using Switch: <br />
+        <strong class="expressions"
+          >switch (number) { <br />
+          case 4: <br />
+          console.log('You rolled a four'); <br />
+          break; <br />
+          case 5: <br />
+          console.log('You rolled a five'); <br />
+          break; <br />
+          case 6: <br />
+          console.log('You rolled a six'); <br />
+          break; <br />
+          default: <br />
+          console.log('You rolled a number less than four'); <br />
+          break; <br />
+          }
+        </strong>
+      </p>
+      <p>
+        Always finish a case block with a break. <br />
+
+        Default keyword= code if none of the other cases are true.
+      </p>
+      <h3>Chapter 4 Functions</h3>
+      <p><strong>Functions</strong> are like mini programs.</p>
+      <p>
+        Be consistent on your style of writing functions declarations or
+        expressions. <br />
+
+        Remember DRY = Don't Repeat Yourself <br />
+
+        Always put default parameters after all the other parameters.
+      </p>
+      <p>
+        <strong>Arrow Functions:</strong> Are always anonymous, so if you want
+        to refer to them, you must assign them to a variable. They work better
+        for short, anonymous functions. <br />
+        <br />
+        <strong>Function Hoisting:</strong> Function declarations are
+        automatically hoisted so they can be used before being defined. Function
+        expressions can only be used after being defined not before.
+      </p>
+      <p class="questions">
+        Questions: What are callbacks exactly? When to use them?
+      </p>
     </div>
   </body>
 </html>
