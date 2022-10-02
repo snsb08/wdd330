@@ -10,7 +10,133 @@
   <body>
     <div id="content">
       <h1>Notes for Week 3:</h1>
-      <p>Coming soon...</p>
+      <h2>JavaScript: Novice to Ninja</h2>
+      <h3>Chapter 5 Objects</h3>
+      <p>
+        Objects are like a database of values or a dictionary. <br />
+
+        Objects are assigned by reference. If two variables reference the same
+        object, they will both change when one is modified. <br />
+        JSON is both human and machine readable.
+      </p>
+      <ol>
+        <li>Property names must be double-quoted</li>
+        <li>
+          Permitted values are double-quoted strings, numbers, true, false,
+          null, arrays and objects
+        </li>
+        <li>Functions are not permitted values</li>
+      </ol>
+      <p><strong>Rounding Methods</strong></p>
+      <p>
+        Math.ceil() to round up <br />
+        Math.floor() to round down <br />
+        Math.round() to round to the nearest integer <br />
+        Math.trunc() to cut the decimal point (gets truncated)
+      </p>
+      <p><strong>Maximum & Minimum Methods</strong></p>
+      <p>
+        Math.max() returns the maximum number <br />
+        Math.min() returns the minimum number <br />
+
+        Be careful with rounding numbers if the result needs to be exact because
+        it is often inaccurate. Computers have lots of trouble dealing with
+        decimal fractions and the results can vary depending on the web browser
+        or operating system. But most of the time rounding errors are not a
+        problem.
+      </p>
+      <p>
+        To generate a random number between 0 and another number, multiply
+        Math.random() by that number.
+
+        <br />
+        The Epoch is a date used in programming as a reference point in time to
+        measure dates. It is 1st January 1970.
+      </p>
+      <p>
+        RegExp = Regular expression that use a pattern to find strings. <br />
+
+        Preferred method: Using literal notation between forward slashes: <br />
+
+        const pattern = /[a-zA-Z]+ing$/; <br />
+
+        Alternative: Using new operator and a constructor function: <br />
+        const pattern = new RegExp('[a-zA-Z]+ing');
+      </p>
+      <p class="questions">
+        Question/Comment: I wonder if people use regExp for family history
+        search. Since many times names are misspelled by just one letter.
+      </p>
+      <p>
+        Some string methods accept regular expressions as a parameter. <br />
+
+        For example: <br />
+        'JavaScript'.match(/[aeiou]/g); // return an array of all the vowels
+        <br />
+        << ['a', 'a', 'i'] <br />
+
+        'JavaScript'.replace(/[aeiou]/ig,'*'); <br />
+        << 'J*v*Scr*pt' <br />
+      </p>
+      <h3>Chapter 6 The Document Object Model</h3>
+      <p>
+        The DOM is a document that has elements connected like branches and
+        nodes of a plant or tree. <br />
+
+        The DOM is not part of JavaScript. DOM can be used with any programming
+        language, but JavaScript is the language most commonly used with it.
+      </p>
+      <p><strong>Getting elements</strong></p>
+      <p>
+        There are different methods to access the elements of a page so they can
+        be assigned to variables and be inspected or modified.
+      </p>
+      <p>
+        document.getElementById() -an element with a unique Id name. Only one
+        can have that name. <br />
+        document.getElementsByClassName() -multiple elements can share a class
+        name. <br />
+        document.querySelector() <br />
+        Dot notation
+      </p>
+      <p>
+        The attributes of an element can be modified or added using
+        setAttribute. It takes two arguments: the attribute that you wish to
+        change, and the new value of that attribute.
+      </p>
+      <p>
+        Elements can be created with createElement(). <br />
+
+        Child elements can be modify with appendChild(), replaceChild(), or
+        removeChild().
+      </p>
+      <h3>Chapter 7 Events</h3>
+      <p>
+        The addEventListener() can help to add some functions that run in the
+        background and let us know when they happen. They only start if the
+        event argument is true and if not, the program keeps moving forward.
+      </p>
+      <p>
+        It is better to avoid events inside the HTML code. Keep JavaScript code
+        separately, out of the HTML.
+
+        <br />
+        Using the name Event makes the code more readable but it is not
+        mandatory to call it Event. Many developers use the "e" for short.
+
+        <br />
+        Be careful about using a single click and double-click event in the same
+        element because it can get confusing and the double-click might trigger
+        the single click event too.
+
+        <br />
+        It is important to add both mouse events and touch events because of the
+        variety of devices that can be used.
+        <br />The swipe effect is done with a combination of touchstart and
+        touchmove.
+      </p>
+      <h3>Team Assignment</h3>
+      <a href="/Teamwork/teamw3.html">Array Cardio Day 1</a>
     </div>
   </body>
 </html>
