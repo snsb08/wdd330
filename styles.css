@@ -40,3 +40,10 @@ a {
     padding: 0.5rem;
 
 }
+
+#hero{
+    color:#5D0B0D;
+    padding: 1rem;
+    width: 50%;
+    margin: 0 auto;
+}
