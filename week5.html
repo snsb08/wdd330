@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 5</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="content">
+      <h1>Notes for Week 5:</h1>
+      <h2>JavaScript: Novice to Ninja</h2>
+      <h3>Chapter 11 Testing and Debugging</h3>
+      <p>
+        Testing and Debugging is important for programmers because there is
+        always a possible error or bug in a program. A programmer needs to
+        constantly be looking for possible error and find ways to minimized
+        them.
+      </p>
+      <p>Possible causes of errors:</p>
+      <ul>
+        <li>
+          System error: the program is used in a system or device that is having
+          problems. It is not the programmer's fault but by being aware of
+          possible common system errors, problems can be reduced.
+        </li>
+        <li>
+          Programmer error: a typo can cause incorrect syntax or faulty logic.
+        </li>
+        <li>
+          User error: typing incorrect type of data can cause a problem.
+          Programmers cannot control what the user will do but they can imagine
+          ahead of time different possible user errors and make the program in a
+          way that minimizes them.
+        </li>
+      </ul>
+      <p>
+        It is better to know when an error occurs to be able to fix it, so
+        programs must have alerts for error and warnings.
+      </p>
+      <p>
+        'use strict'; Mode produces more exceptions and warnings and prohibits
+        the use of some deprecated features.
+      </p>
+      <p class="questions">
+        Questions: why or how do deprecated features happen? I did have a code
+        before that said that the variable was deprecated but it still allowed
+        me to use it, possibly because I did not have the strict mode, but I did
+        not understand why it was deprecated.
+      </p>
+      <p>
+        The recommended way to invoke strict mode: (function() { <br />
+        'use strict'; <br /><br />
+
+        // All your code would go inside this function <br /><br />
+
+        }());
+      </p>
+      <h4>Feature Detection</h4>
+      <p>
+        It is impossible to know which browser will be used by each user, so the
+        program has to find a way to be compatible and it can be done using
+        feature detection. We can use an if statement that will prevent errors
+        if certain methods are not supported by the browser being used. "Feature
+        detection guarantees that the method is only called if it actually
+        exists and fails gracefully, without any exceptions being thrown, if the
+        method doesn't exist.
+      </p>
+      <h4>Debugging in the Browser</h4>
+      <p>
+        <strong>The Trusty alert() method</strong> can be used to debug a
+        program by acting like breakpoint since the program stops until the ok
+        is clicked.
+      </p>
+      <p>
+        Console.trace() method will log an interactive stack trace in the
+        console. This will show functions that were called in the lead up to an
+        exception occurring while the code is running.
+      </p>
+      <h4>Debugging tools</h4>
+      <p>
+        Most modern browsers have a debugging tool that sets breakpoints to
+        check the code.
+      </p>
+      <h4>Error Objects</h4>
+      <p>
+        An error object can be created by the host environment when an exception
+        occurs, or it can be created in the code using a constructor function.
+        <br />
+        const error = new Error('Oops, something went wrong');
+      </p>
+      <p>There are seven more error objects used for specific errors:</p>
+      <ul>
+        <li>
+          EvalError is not used in the current ECMAScript specification and only
+          retained for backwards compatibility. It was used to identify errors
+          when using the global eval() function.
+        </li>
+        <li>
+          RangeError is thrown when a number is outside an allowable range of
+          values.
+        </li>
+        <li>
+          ReferenceError is thrown when a reference is made to an item that
+          doesn&apos;t exist. For example, calling a function that hasn't been
+          defined.
+        </li>
+        <li>
+          SyntaxError is thrown when there&apos;s an error in the code’s syntax.
+        </li>
+        <li>
+          TypeError is thrown when there’s an error in the type of value used;
+          for example, a string is used when a number is expected.
+        </li>
+        <li>
+          URIError is thrown when there’s a problem encoding or decoding the
+          URI.
+        </li>
+        <li>
+          InternalError is a non-standard error that is thrown when an error
+          occurs in the JavaScript engine. A common cause of this too much
+          recursion.
+        </li>
+      </ul>
+      <p>
+        All error objects have a number of properties, but they’re often used
+        inconsistently across browsers. The only properties that are generally
+        safe to use are:
+      </p>
+      <ul>
+        <li>
+          The name property returns the name of the error constructor function
+          used as a string, such as 'Error' or 'ReferenceError'.
+        </li>
+        <li>
+          The message property returns a description of the error and should be
+          provided as an argument to the Error constructor function.
+        </li>
+        <li>
+          The stack property will return a stack trace for that error. This is a
+          non-standard property and it’s recommended that it is not safe to use
+          in production sites.
+        </li>
+      </ul>
+      <h4>Throwing Exceptions</h4>
+      <p>
+        The throw statement can be applied to any JavaScript expression, causing
+        the execution of the program to stop.
+      </p>
+      <h4>Exception Handling</h4>
+      <p>
+        <strong>Try:</strong> code in a try block will run as normal but if an
+        exception occurs it will pass the error object that is thrown onto a
+        catch block. <strong>Catch:</strong> code in a catch block will only run
+        if an exception I thrown inside the try block.
+        <strong>Finally:</strong> the finally block always executed after the
+        try or catch block. It is used if you want some code to run in both
+        cases.
+      </p>
+      <h4>Tests</h4>
+      <p>
+        Testing helps to write better code where errors can be identified early
+        on.
+      </p>
+      <p>
+        <strong>Test-driven development (TDD)</strong> is considered to be best
+        practice, but many do not use it.
+      </p>
+      <ol>
+        <li>Write tests (that initially fail)</li>
+        <li>Write code to pass the tests</li>
+        <li>Refactor the code</li>
+        <li>Test refactored code</li>
+        <li>Write more tests for new features</li>
+      </ol>
+      <h3>Team Assignment</h3>
+      <a href="Teamwork\week5\teamw5.html">Teamwork week 5</a>
+    </div>
+  </body>
+</html>
