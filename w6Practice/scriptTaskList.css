@@ -1,0 +1,29 @@
+.container{
+    background-color: aqua;
+}
+
+.collection{
+    /* background-color: blueviolet; */
+    /* display:flex;
+    flex-direction: column; */
+    display: grid;
+    /* grid-template-columns: 2fr 1fr; */
+}
+
+.collection-item{
+    /* background-color: bisque; */
+    list-style: none;
+    /* display:flex;
+    gap: 1em; */
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    width: 50%;
+    border: solid;
+}
+
+.fa{
+    color:red;
+    grid-column: 2/ -1;
+    text-align: right;
+    
+}
