@@ -2,12 +2,17 @@
     background-color: aqua;
 }
 
-.collection{
+h1{
+    text-align: center;
+}
+
+.displayTasks{
     /* background-color: blueviolet; */
     /* display:flex;
     flex-direction: column; */
     display: grid;
     /* grid-template-columns: 2fr 1fr; */
+    padding-left: 0;
 }
 
 .collection-item{
@@ -17,13 +22,25 @@
     gap: 1em; */
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    width: 50%;
+    width: 80%;
     border: solid;
 }
 
-.fa{
+.x_btn{
     color:red;
     grid-column: 2/ -1;
     text-align: right;
     
 }
+
+.toDoGrid {
+    background-color: bisque;
+    margin: 2em;
+    padding: 1em;
+    border: solid;
+}
+
+.checked {
+    background-color: red;
+    text-decoration: line-through;
+  }

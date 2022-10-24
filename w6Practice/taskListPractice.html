@@ -9,33 +9,23 @@
   </head>
   <body>
     <div class="container">
-      <h1>JavaScript Sandbox: Section 3</h1>
-      <h2>Task List</h2>
+      <h1>Todos</h1>
+      <div class="toDoGrid">
+        <ul class="displayTasks"></ul>
+        <p id="tasksLeft"># tasks left</p>
+        <button id="allTasksView">All</button>
+        <button id="activeTasksView">Active</button>
+        <button id="completedTasksView">Completed</button>
+      </div>
+      <span class="card-title">Task List</span>
       <div class="row">
-        <div class="col s12"></div>
-        <div id="main" class="card">
-          <div class="card-content">
-            <div class="card-action">
-              <h5 id="task-title">Tasks</h5>
-              <div class="input-field col s12">
-                <input type="text" name="filter" id="filter" />
-                <label for="filter"></label>
-              </div>
-              <ul class="collection"></ul>
-              <a class="clear-tasks btn black" href="#">Clear Tasks</a>
-            </div>
-            <span class="card-title">Task List</span>
-            <div class="row">
-              <form id="task-form">
-                <div class="input-field col s12">
-                  <input type="text" name="task" id="task" />
-                  <label for="task"></label>
-                </div>
-                <input type="submit" value="+" class="btn" />
-              </form>
-            </div>
+        <form id="task-form">
+          <div class="input-field">
+            <input type="text" name="task" id="task" />
+            <label for="task"></label>
           </div>
-        </div>
+          <input type="submit" value="+" class="btn" />
+        </form>
       </div>
     </div>
     <script src="appTaskList.js"></script>

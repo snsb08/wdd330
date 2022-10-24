@@ -1,9 +1,9 @@
 //Define UI vars
 const form = document.querySelector('#task-form');
-const taskList = document.querySelector('.collection');
-const clearBtn = document.querySelector('.clear-tasks');
-const filter = document.querySelector('#filter');
+const taskList = document.querySelector('.displayTasks'); 
+// const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
+const activeTasksView = document.querySelector('#activeTasksView')
 
 //load all event listeners
 loadEventListeners();
@@ -19,11 +19,12 @@ function loadEventListeners() {
     //Remove task event
     taskList.addEventListener('click', RemoveTask);
 
-    //Clear task Event
-    clearBtn.addEventListener('click', clearTasks);
-
     //Filter tasks event 
-    filter.addEventListener('keyup', filterTasks);
+    // filter.addEventListener('keyup', filterTasks);
+
+    //Active task event
+    activeTasksView.addEventListener('click', activeDisplay);
+
 }
 
 //Get Tasks from Local Storage
@@ -52,9 +53,9 @@ function getTasks(){
         //create new link element
         const link = document.createElement('a');
         //add class
-        link.className= 'delete-item secondary-content';
-        //Add icon html
-        link.innerHTML = '<li class="fa fa-remove"> X</i>';
+        link.className= 'delete-item';
+        //Add X to html
+        link.innerHTML = '<li class="x_btn"> X</i>';
         //Append the link to li
         li.appendChild(link);
 
@@ -64,7 +65,6 @@ function getTasks(){
         taskList.appendChild(li); //because we gave the ul the name taskList earlier
     });    
 }
-
 
 //add Task Function
 function addTask(e) { //takes an event object
@@ -76,14 +76,18 @@ function addTask(e) { //takes an event object
     const li= document.createElement('li');
     //Add class
     li.className = 'collection-item';
+    //create input checkbox
+    const check = document.createElement('input');
+    check.type = 'checkbox';
+    li.appendChild(check);
     //create text node and append to li
     li.appendChild(document.createTextNode(taskInput.value));
     //create new link element
     const link = document.createElement('a');
     //add class
-    link.className= 'delete-item secondary-content';
-    //Add icon html
-    link.innerHTML = '<li class="fa fa-remove"> X</i>';
+    link.className= 'delete-item';
+    //Add X btn to html
+    link.innerHTML = '<li class="x_btn"> X</i>';
     //Append the link to li
     li.appendChild(link);
 
@@ -143,44 +147,64 @@ function removeTaskFromLocalStorage(taskItem){
 
 }
 
+//----------FILTERS: --------------
+//Display certain tasks depending on filter clicked
+//All display
+
+// function displayAll()
+
+//Active display
+
+function activeDisplay(activeTask){
+    // //initianize tasks 
+    // let tasks;
+    // activeTasksView.addEventListener('click', activeDisplay);
+    check = document.querySelector(".collection-item").checked = true;
+    unchecked = document.querySelector(".collection-item").checked = false;
+    if (activeTask.target.check) {
+        activeTask.target.classList.toggle('checked');
+    }; 
+
+    // //check if there are any ACTIVE tasks in there
+    // if (localStorage.getItem(activeTask, "checked: false")){
+    //     tasks = []
+    // } else {
+    //         tasks = JSON.parse(localStorage.getItem('tasks')); 
+    // }
+    // ; 
+
+    // // if(localStorage.getItem('tasks') === null){
+    // //     tasks = []; 
+    // // } else {
+    // //     tasks = JSON.parse(localStorage.getItem('tasks')); //local storage just takes string so we need to parse it
+    // // }
+
+    // tasks.forEach(function(task){
+    //     //create li element
+    //     const li= document.createElement('li');
+    //     //Add class
+    //     li.className = 'collection-item';
+    //     //create input checkbox
+    //     const check = document.createElement('input');
+    //     check.type = 'checkbox';
+    //     // check.innerHTML = '<input type="checkbox" class="check"/>';
+    //     li.appendChild(check, "checked: false");
+    //     //create text node and append to li
+    //     li.appendChild(document.createTextNode(task));
+    //     //create new link element
+    //     const link = document.createElement('a');
+    //     //add class
+    //     link.className= 'delete-item';
+    //     //Add X to html
+    //     link.innerHTML = '<li class="x_btn"> X</i>';
+    //     //Append the link to li
+    //     li.appendChild(link);
+
+        
+
+    //     //append li to ul
+    //     taskList.appendChild(li); //because we gave the ul the name taskList earlier
+    // });   
 
 
-//Clear All Tasks FUnction
-function clearTasks(){
-    // taskList.innerHTML = '';
-
-    //Faster:
-    while(taskList.firstChild) { //while there is still a first child, which means there are items on the list
-        taskList.removeChild(taskList.firstChild);
-
-    }
-
-    //Clear from LS
-    clearTasksFromLocalStorage();
 }
-
-//Clear Tasks from LS
-function clearTasksFromLocalStorage() {
-    localStorage.clear();
-}
-
-
-//Filter Tasks function
-function filterTasks(e) {
-    const text = e.target.value.toLowerCase(); //so no matter how it was written it looks for it in lower case and can find it
-    
-    document.querySelectorAll('.collection-item').forEach //make sure to get All 
-    (function(task){
-        const item = task.firstChild.textContent;
-        if(item.toLowerCase().indexOf(text) != -1){ //if there is none, it equals -1 so we want to say if it is not -1 then continue
-            task.style.display = 'block'; //so that it shows
-        } else {
-            task.style.display = 'none'; 
-        }
-    });
-}
-
-//for modules and imports
-//maybe I can add the delete function to another file
-//have on file for adding tasks
-//a main file to call all functions
