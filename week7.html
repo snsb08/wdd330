@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 7</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="content">
+      <h1>Notes for Week 7:</h1>
+      <h2>JavaScript: Novice to Ninja</h2>
+      <h3>Chapter 11 Further Functions</h3>
+      <p><strong>Function Properties and Methods</strong></p>
+      <p>
+        Functions can have properties and methods because they are first-class
+        objects.
+
+        <br />
+        The length property returns the number of parameters the function has.
+
+        <br />
+        Call() can be used to set the value of 'this' inside a function to an
+        object that is provided as the first argument. If that function needs
+        any parameters, these need to be provided as arguments after the first
+        argument 'this'.
+      </p>
+      <p>
+        function sayHello(greeting='Hello'){ <br />
+        return `${ greeting }, my name is ${ this.name }`; <br />
+        } <br />
+
+        sayHello.call(clark, 'How do you do'); <br />
+        << 'How do you do, my name is Clark' <br />
+
+        sayHello.call(bruce); <br />
+        << 'Hello, my name is Bruce' <br />
+      </p>
+      <p>
+        <strong> IIFE: Immediately Invoked Function Expression</strong> is an
+        anonymous function that is invoked as soon as it's defined. The function
+        is written between parenthesis and is a way of performing a task while
+        keeping any variables wrapped up within the scope of the function
+        without polluting the global namespace.
+      </p>
+      <p>
+        <strong> Temporary Variables</strong> are used inside an IIFE and after
+        it is invoked, it disappears. This helps to avoid confusion if the same
+        named variable is used later in the code.
+      </p>
+      <p>
+        <strong> Safe Use of Strict Mode:</strong> <br /><br />
+
+        (function() { <br />
+        'use strict'; <br /><br />
+
+        // All your code would go inside this function <br /><br />
+
+        })();
+      </p>
+      <p>
+        Creating Self-contained Code Blocks <br /><br />
+
+        (function() { <br />
+        // block A <br />
+        const name = 'Block A'; <br />
+        console.log(`Hello from ${name}`); <br />
+        }());<br /><br />
+
+        (function() {<br />
+        // block B<br />
+        const name = 'Block B';<br />
+        console.log(`Hello from ${name}`);<br />
+        }());<br />
+        <br />
+
+        << Hello from Block A<br />
+        Hello from Block B<br /><br />
+
+        Here the variable name can be used again because it is in a separate
+        IIFE.
+      </p>
+      <p>
+        Functions that Define and Rewrite Themselves <br /><br />
+
+        function party(){<br />
+        console.log('Wow this is amazing!');<br />
+        party = function(){<br />
+        console.log('Been there, got the T-Shirt');<br />
+        }<br />
+        }<br />
+        <br />
+
+        const beachParty = party; // note that the party function has not been
+        invoked
+
+        <br />
+        beachParty(); // the party() function has now been redefined, even
+        though it hasn't been called explicitly << 'Wow this is amazing!' <br />
+
+        party(); <br />
+        << 'Been there, got the T-Shirt'<br /><br />
+
+        beachParty(); // but this function hasn't been redefined<br />
+        << 'Wow this is amazing!'<br /><br />
+
+        beachParty(); // no matter how many times this is called it will remain
+        the same
+        <br />
+        << 'Wow this is amazing!'<br />
+      </p>
+      <p>
+        <strong> Callbacks</strong> <br />
+        JavaScript process one code at a time, but using callbacks, the code can
+        run out of order to ensure that waiting for some tasks to be completed
+        don't hold up the rest of the program.
+      </p>
+      <p>
+        <strong> Promises</strong> help to simplify the callback process and
+        avoid confusion from multiple callbacks. Promise Life Cycle:
+        <br /><br />
+
+        -Promise Creation <br />
+        -Pending<br />
+        -Unsettled<br />
+        -Completed/ Settled<br />
+        -Resolved<br />
+        -Rejected<br /><br />
+
+        Creating a Promise<br />
+
+        A promise is created using a constructor function. This takes a function
+        called an executor as an argument.
+        <br />Executor: initializes promise, starts operation. Takes two
+        functions as arguments: resolve() and reject()
+        <br />
+        const promise = new Promise( (resolve, reject) => {<br />
+        // initialization code goes here<br />
+        if (success) {<br />
+        resolve(value);<br />
+        } else {<br />
+        reject(error);<br />
+        }<br />
+        });<br />
+      </p>
+      <p><strong></strong>Dealing with a settled promise </strong> <br>
+
+        Then() takes two arguments: <br>
+            -fulfillment function with data from resolve()<br>
+            -rejection function with data from reject()<br>
+        
+        Alternatively, the catch() method can be used to specify what to do if the operation fails instead..
+        
+        <br>Functions can also return other functions.<br>
+        
+        Closures<br>
+        Function Scopes<br>
+        A closure is a reference to a variable that was created inside the scope of another function, but is then kept alive and used in another part of the program.
+        <br> One of the key principles in creating closures is that an 'inner' function, which is declared inside another function, has full access to all of the variables declared inside the scope of the function in which it’s declared (the 'outer' function).
+        
+        <br> function outer() {<br>
+            const outside = 'Outside!';<br>
+            function inner() {<br>
+                const inside = 'Inside!';<br>
+                console.log(outside);<br>
+                console.log(inside);<br>
+            }<br>
+            console.log(outside);<br>
+            inner();<br>
+        }<br><br>
+        
+        The outer() function only has access to the variable outside, which was declared in its scope. The inner() function, however, has access to the variable inside, declared in its scope, but also the variable outside, declared outside its scope, but from within the outer() function.
+        
+        <br> A closure is formed when the inner function is returned by the outer function, maintaining access to any variables declared inside the enclosing function.
+        </p>
+        <p><strong>Pure Function Rules: </strong> <br>
+            <br> 1) Return value depends only on the values provided as arguments.
+            <br> 2) It doesn't affect the rest of the program, just makes non-destructive data transformations and return new values
+            <br> 3) Referential transparency. Given the same argument, will always return the same result. 
+        
+            <br> Pure functions must have:
+            <br> -At least one Argument
+            <br> -A return value
+        
+            <br>Functional programming uses pure functions as the building blocks of a program. The functions perform a series of operations without changing the state of any data. Each function forms an abstraction that should perform a single task, while encapsulating the details of its implementation inside the body of the function.
+        </p>
+        <p></p>
+        <h3>Chapter 13 Ajax</h3>
+        <p>Ajax helps to keep the webpages dynamic. For example, it can update pages without reloading. 
+
+           <br> AJAX = Asynchronous JavaScript and XML
+            </p>
+        <p> <strong>
+            Asynchronous</strong> <br>
+            When a request for data is sent, the program doesn’t have to stop and wait for the response. It can carry on running, waiting for an event to fire when a response is received. By using callbacks to manage this, programs are able to run in an efficient way, avoiding lag as data is transferred back and forth.
+          <strong>JavaScript</strong>  <br>
+            JavaScript was always considered a 'front-end' language, not used to communicate with the server. Ajax enabled JavaScript to send requests and receive responses from a server, allowing content to be updated in real time.
+           <strong>XML</strong> <br>
+            When the term Ajax was originally coined, XML documents were often used to return data. Many different types of data can be sent, but by far the most commonly used in Ajax nowadays is JSON, which is more lightweight and easier to parse than XML. (Although it has never really taken off, the term Ajaj is sometimes used to describe the technique.) JSON also has the advantage of being natively supported in JavaScript, so you can deal with JavaScript objects rather than having to parse XML files using DOM methods.
+             
+        </p>
+        <p>Today, it’s unusual for Ajax not to be used when a partial web page update is required. The explosion in the use of public APIs also means that Ajax is used more than ever to transport data back and forth between sites.
+
+        </p> 
+        <p>  The Fetch API provides a global fetch() method that only has one mandatory argument, which is the URL of the resource you wish to fetch.
+            
+        </p> 
+        <p>  The redirect() method can be used to redirect to another URL. It creates a new promise that resolves to the response from the redirected URL.
+            
+        </p>
+         <p> The text() method takes a stream of text from the response, reads it to completion and then returns a promise that resolves to a USVSting object that can be treated as a string in JavaScript.
+            
+        </p> 
+        <p> The blob() method is used to read a file of raw data, such as an image or a spreadsheet. Once it has read the whole file, it returns a promise that resolves with a blob object.
+            
+        </p>
+         <p>  JSON is probably the most common format for AJAX responses. The json() method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object.
+            </p>  
+        <h3>Team Assignment</h3>
+        <a href="Teamwork\w7\w07team.html">Teamwork week 7</a> 
+    </div>
+  </body>
+</html>
