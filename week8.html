@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 8</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="content">
+      <h1>Notes for Week 8:</h1>
+      <h2>HTML and CSS3 for the Real World</h2>
+      <h3>Chapter 8 Transforms and Transitions</h3>
+      <p>
+        <strong> Transform</strong> is used to translate, rotate, scale and/or
+        skew any element on the page. We can manipulate an element's appearance
+        using transform functions. <br />
+
+        <br /><strong>Translation</strong> functions allow you to move elements
+        left, right, up, or down. A translated element can only be moved
+        relative to its current position.
+
+        <br />
+        Translate (x,y) function moves an element x from the left, and y from
+        the top.
+
+        <br />
+        Scale (x,y) function scales an element by the defined factors
+        horizontally then vertically.
+
+        <br />
+        <br />
+        Rotate() function rotates an element around the point of origin by a
+        specified angle value. By default, the point of origin is the element's
+        center. <br />
+        Angles are declared in degrees: <br />
+        -positive degrees move clockwise <br />
+        -negative degrees move counterclockwise
+
+        <br />
+        <br />
+        Skew(x,y) function specifies a skew along the x and y.
+      </p>
+      <p>
+        The transition-duration property set how long the transition will take
+        to go from the default to the transitioned state.
+
+        <br /><br />
+        The transition-timing-function lets you control the pace of the
+        transition in more detail. <br />
+        The most common timing functions include: ease, linear, ease-in,
+        ease-out, or ease-in-out. <br />
+        Try using slow motion to test the animation to really see what is
+        happening before speeding it up to the right timing.
+
+        <br /><br />
+        The transition-delay property is used to introduce a delay before the
+        transition begins.
+
+        <br /><br />
+        The properties of a transition can be written all in one line divided by
+        space. In the shorthand, if a delay is included, the duration must
+        precede the delay. You can also use the shorthand to specify multiple
+        transitions at different durations, delays and timing functions by
+        separating then with a comma.
+      </p>
+      <p><strong> Animations</strong> <br><br>
+
+        Animations in CSS are controlled by keyframes which are snapshots that define a starting or end point of any smooth transition. 
+        
+       <br> CSS animations are great for subtle, simpler or smaller animations as opposed to JavaScript Animations.
+        
+       <br><br> <strong> Animation Properties</strong>
+        <ul>
+            <li><strong> Animation-name</strong> attaches an animation to an element</li>
+            <li><strong>Animation-duration</strong>defines the length of time of the animation (in seconds or milliseconds)</li>
+            <li><strong> Animation-timing-function</strong> determines how the animation will progress over its duration. (ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier, step-start, step-end…)</li>
+            <li><strong>Animation-iteration-count</strong>defines how many times the animation will play through or infinite for endless repetition. The default is 1. </li>
+            <li><strong>Animation-direction</strong>can be set to reverse to make the animation go backwards, or to alternate to make it go from forwards to backwards.</li>
+            <li><strong>Animation-delay</strong>set a delay to the start of the animation in milliseconds or seconds</li>
+            <li><strong>Animation-fill-mode</strong>defines what happens before the first animation iteration begins and after the last animation iteration concludes.</li>
+            <li><strong>Animation-play-state</strong>defines whether the animation is running or paused. </li>
+        </ul>
+       
+        </p>
+        <h3>Chapter 12 Canvas, SVG, and Drag and Drop</h3>
+        <p><strong> Canvas:</strong> can be used to draw any shapes and patterns using JavaScript.
+           <br> First, you add a canvas element to the page and add an id name.
+           <br> By adding a border to the canvas, we can see exactly where it is and the size.
+            
+           <br><br> We can use strokeStyle or fillStyle to color the canvas or a shape. First define the stroke color, gradient or pattern, then draw the shape needed. 
+            
+           <br><br> fillRect and strokeRect methods draw a rectangle
+            
+           <br><br> The top-left corner of the canvas is where we have the coordinates (0,0).
+            
+           <br><br> CanvasPattern method can make a shape using an image as background.
+            
+           <br><br> CanvasGradient method make a gradient effect on the background using either createLinearGradient() or createRadialGradient(). 
+           <br> AddColorStop() is used to add color to the gradient, it is called as many times as different colors needed. 
+            
+           <br> Paths create a blueprint for lines, arcs and shapes, but they need stroke color to be seen. 
+            </p>
+
+            <p><strong> SVG = scalable Vector Graphics</strong> is an XML file format. 
+               <br><strong> XML = eXtensible Markup Language.</strong> A system meant to annotate text.
+            </p>
+
+            <p><strong> Canvas vs SVG: </strong>
+               <br> Canvas allows for pixel manipulation. Canvas operates as immediate mode which means that after you finish drawing a shape, you can't modify it, you would have to draw a new shape. Canvas doesn't have access via the DOM, which makes it faster. Canvas is a better choice for game design with lots of animations. 
+                
+               <br><br> SVG is retained mode which preserves the image in the XML document, so it can be accessed and changed later. But SVG images can't manipulate pixels like Canvas.  
+            </p>    
+
+            <p><strong> Drag and Drop API</strong> allows specific elements to be draggable. 
+
+               <ol><li>Set the draggable attribute on any HTML elements</li>
+               <li>add event listener for the dragstart event on the element</li>
+               <li>Add an event listener for the dragober and drop events on any elements that you want to have accept dropped items</li></ol> 
+                </p>
+
+
+            <p>DataTransfer lets us define:</p>
+                <ol><li>The type of data we're saving of the draggable element</li>
+                <li>the value of the data itself</li></ol>
+            <p>Dragover fires when you drag an item over an element. 
+               <br> Drop fires when you drop an item on it. </p>
+
+      <h3>Team Assignment</h3>
+      <a href="Teamwork\w8\swapi.html">Teamwork week 8</a>
+    </div>
+  </body>
+</html>
