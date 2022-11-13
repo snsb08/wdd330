@@ -23,7 +23,7 @@ h1{
     text-align: center;
 }
 h2{
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 a {
     color: white;
@@ -87,3 +87,17 @@ a {
 img {
     max-width: 100%;
 }
+
+#square, #square2, #square3 {
+    margin: 100px;
+    width: 100px;
+    height: 100px;
+    background: #d16;
+}
+
+#square3 {
+    background: #cc0;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(3600deg); } }

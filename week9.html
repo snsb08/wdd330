@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 9</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="content">
+      <h1>Notes for Week 9:</h1>
+      <h2>JavaScript: Novice to Ninja</h2>
+      <h3>Chapter 9 The Window Object</h3>
+      <p>
+        The Browser Object Model (BOM) <br /><br />
+        <br />
+        x = 6; // global variable created <br />
+        << 6 <br /><br />
+        window.x // same variable can be accessed as a property of the window
+        object
+        <br />
+        << 6 <br /><br />
+        <br />
+        // both variables are exactly the same <br />
+        window.x === x; <br />
+        << true
+      </p>
+      <p>
+        <strong>Controlling Windows</strong><br /><br />
+
+        Window.screen object contains information about the screen the browser
+        is display on.
+
+        <br /><br />
+        window.screen.height <br />
+        << 1024 <br /><br />
+        window.screen.width
+        <br />
+        << 1280
+
+        <br /><br />
+        The Screen object has more uses for mobile devices. It also allows you
+        to do things like turn off the device’s screen, detect a change in its
+        orientation or lock it in a specific orientation. <br />
+        Screen object works with mobile devices to turn off the device's screen
+        or detect a change in its orientation or lock it in a specific
+        orientation.
+
+        <br /><br />
+        setTimeout() accepts a callback to a function as its first parameter and
+        a number of milliseconds as its second parameter.
+
+        <br /><br />
+        setInterval() repeatedly invokes the callback function after every given
+        number of milliseconds.
+      </p>
+      <h3>Chapter 9 exercise</h3>
+      <h4>Using setInterval()</h4>
+      <div id="square"></div>
+      <h4>Using requestAnimationFrame()</h4>
+      <div id="square2"></div>
+      <h4>Using CSS animation</h4>
+      <div id="square3"></div>
+    
+    <h3>Chapter 14 HTML5 APIs</h3>
+
+    <p>The data- attributes  are custom attributes used for embedding data. They are private to a page and ignored by the browser. Their purpose is to be used by JavaScript only. 
+
+       <br><br> They follow the following format:
+       <ul><li>Starts with data-</li>
+        <li>Contains only: lowercase, numbers, hyphens, dots, colons or underscores</li>
+        <li>include an optional string value</li>
+    </ul> 
+        
+      <br>  data-powers = 'flight superSpeed'
+       <br> data-rating = '5' 
+       <br> data-dropdown 
+       <br> data-user = 'DAZ' 
+       <br> data-max-length = '32'
+        
+      <br><br>  Dataset is used to access the attributes of data. The hyphens are removed and replaced by camel-case: data-max-length for dataset.maxLength 
+        </p>
+
+        <p>
+            HTML5 Web Storage:
+         <br>   LocalStorage.setItem  stores some information in the memory even if the browser closes
+         <br>   localStorage.getItem access the information that was stored
+         <br>   localStorage.removeItem to remove the item from the memory
+         <br>   localStorage.clear() removes everything that was stored in local storage
+
+         <br>   The position object has several other properties that can be used to find out information about the location and movement of the device:
+         <br>   position.speed property returns the ground speed of the device in meters per second.
+         <br>   position.altitude property returns an estimate of the device’s altitude in meters above the WGS84 ellipsoid, which is a standard measurement for the center of the Earth.
+         <br>   position.heading property returns the direction the device is moving in. This is measured as a bearing in degrees, clockwise from North.
+         <br>   position.timestamp property returns the time that the position information was recorded.
+
+        </p>
+
+        <h2><a href="w9Practice\factors.html">Factors exercise</a>  </h2>
+        <h2><a href="w9Practice\websocket.html">Websocket exercise</a>  </h2>
+
+       <p> Multimedia: <br><br>
+
+        < audio> tag to insert audio <br>
+        < video> tag to insert video <br>
+
+        Video methods: Play(), Pause(), volume, muted, currentTime, playbackRate, loop, duration </p>
+        <p>Drawing with Canvas
+            
+        <br> < canvas> with a specific height and width is used to draw a canvas.
+            
+        </p>
+
+        <h3>Team Assignment</h3>
+        <a href="Teamwork\w9\index-START.html">Drum Kit</a>
+        
+      </div>  
+
+    <script>
+      const squareElement = document.getElementById("square");
+      const squareElement2 = document.getElementById("square2");
+      let angle = 0;
+
+      setInterval(() => {
+        angle = (angle + 2) % 360;
+        squareElement.style.transform = `rotate(${angle}deg)`;
+      }, 1000 / 60);
+
+      function rotate() {
+        angle = (angle + 2) % 360;
+        squareElement2.style.transform = `rotate(${angle}deg)`;
+        window.requestAnimationFrame(rotate);
+      }
+
+      const id = requestAnimationFrame(rotate);
+    </script>
+  </body>
+</html>
