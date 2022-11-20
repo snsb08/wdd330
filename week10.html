@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>week 10</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="content">
+      <h1>Notes for Week 10:</h1>
+      <h2>MDN: Validating forms</h2>
+      <h3>Client-side Form Validation</h3>
+      <p>
+        Client-side validation is an initial check done in the browser and an
+        important feature of good user experience; by catching invalid data on
+        the client-side, the user can fix it straight away. But server-side
+        validation is also needed to catch any malicious data trying to go into
+        your server.
+      </p>
+      <p>
+        <strong> Form Validation</strong> checks that the user enters the
+        correct data in a form, such as if the email is not valid, if any
+        required spaces are left empty, or if the password is correct. If the
+        data is corrects, it is submitted to the server, if it is incorrect, it
+        gives the user an error message to explain what needs to be corrected.
+      </p>
+      <h4>Different types of client-side validation:</h4>
+      <ul>
+        <li>
+          <strong>Built-in form validation:</strong> uses HTML form validation
+        </li>
+        <li>
+          <strong>JavaScript</strong> validation which is completely
+          customizable
+        </li>
+      </ul>
+      <h4>Using built-in form validation</h4>
+      <ul>
+        <li>required: specifies that the field has to be filled</li>
+        <li>
+          minlength and maxlength: specifies the length of textual data
+          (strings)
+        </li>
+        <li>min and max: specifies the values of numerical input types</li>
+        <li>
+          type: specifies the preset type. Like number, email address, etc
+        </li>
+        <li>
+          pattern: specifies a regular expression that defines a pattern to
+          follow
+        </li>
+      </ul>
+
+      <h3>Form 1</h3>
+      <form>
+        <label for="choose"
+          >Would you prefer a banana or a cherry? (required)</label
+        >
+        <input
+          id="choose"
+          name="i_like"
+          required
+          pattern="[Bb]anana|[Cc]herry"
+        />
+        <button>Submit</button>
+      </form>
+
+      <h3>Form 2</h3>
+      <form>
+        <div>
+          <label for="choose">Would you prefer a banana or a cherry?</label>
+          <input
+            type="text"
+            id="choose"
+            name="i-like"
+            required
+            minlength="6"
+            maxlength="6"
+          />
+        </div>
+        <div>
+          <label for="number">How many would you like?</label>
+          <input
+            type="number"
+            id="number"
+            name="amount"
+            value="1"
+            min="1"
+            max="10"
+          />
+        </div>
+        <div>
+          <button>Submit</button>
+        </div>
+      </form>
+      <h3>Form 3</h3>
+      <form>
+        <p>
+          <fieldset>
+            <legend>Do you have a driver's license?<span aria-label="required">*</span></legend>
+            <!-- While only one radio button in a same-named group can be selected at a time,
+                 and therefore only one radio button in a same-named group having the "required"
+                 attribute suffices in making a selection a requirement -->
+            <input type="radio" required name="driver" id="r1" value="yes"><label for="r1">Yes</label>
+            <input type="radio" required name="driver" id="r2" value="no"><label for="r2">No</label>
+          </fieldset>
+        </p>
+        <p>
+          <label for="n1">How old are you?</label>
+          <!-- The pattern attribute can act as a fallback for browsers which
+               don't implement the number input type but support the pattern attribute.
+               Please note that browsers that support the pattern attribute will make it
+               fail silently when used with a number field.
+               Its usage here acts only as a fallback -->
+          <input type="number" min="12" max="120" step="1" id="n1" name="age"
+                 pattern="\d+">
+        </p>
+        <p>
+          <label for="t1">What's your favorite fruit?<span aria-label="required">*</span></label>
+          <input type="text" id="t1" name="fruit" list="l1" required
+                 pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+          <datalist id="l1">
+            <option>Banana</option>
+            <option>Cherry</option>
+            <option>Apple</option>
+            <option>Strawberry</option>
+            <option>Lemon</option>
+            <option>Orange</option>
+          </datalist>
+        </p>
+        <p>
+          <label for="t2">What's your e-mail address?</label>
+          <input type="email" id="t2" name="email">
+        </p>
+        <p>
+          <label for="t3">Leave a short message</label>
+          <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+        </p>
+        <p>
+          <button>Submit</button>
+        </p>
+      </form>
+      <h3>Validating Forms Using JavaScript</h3>
+      <p>JavaScript can help to control the look and feel of native error messages.</p>
+      <h4>The Constraint Validation API</h4>
+      <ul><li>HTMLButtonElement (represents a button> element)</li>
+      <li>HTMLFieldSetElement (represents a fieldset> element)</li>
+      <li>HTMLInputElement (represents an input> element)</li>
+      <li>HTMLOutputElement (represents an output> element)</li>
+      <li>HTMLSelectElement (represents a select> element)</li>
+      <li>HTMLTextAreaElement (represents a textarea> element)</li></ul>
+
+      <h3>Implementing a customized error message</h3>
+      <h4>form 1</h4>
+      <form>
+        <label for="mail">
+          I would like you to provide me with an e-mail address:
+        </label>
+        <input type="email" id="mail" name="mail" />
+        <button>Submit</button>
+      </form>
+      <h4>form 2</h4>
+      <form novalidate id="emailForm">
+        <p>
+          <label for="mail2">
+            <span>Please enter an email address:</span>
+            <input type="email" id="mail2" name="mail2" required minlength="8" />
+            <span class="error" aria-live="polite"></span>
+          </label>
+        </p>
+        <button>Submit</button>
+      </form>
+      <h4>form 3</h4>
+      <form id="form3">
+      <p>
+        <label for="mail3">
+          <span>Please enter an email address:</span>
+          <input type="text" id="mail3" name="mail3" />
+          <span class="error" aria-live="polite"></span>
+        </label>
+      </p>
+  <button>Submit</button>
+</form>
+
+
+      <h2>Team Activity</h2>
+      <a href="Teamwork/w10/Week10.html">Team Quake Activity</a>
+
+    </div>
+    <script>
+      const email = document.getElementById("mail");
+
+      email.addEventListener("input", (event) => {
+        if (email.validity.typeMismatch) {
+          email.setCustomValidity("I am expecting an e-mail address!");
+          email.reportValidity();
+        } else {
+          email.setCustomValidity("");
+        }
+      });
+
+      //for form 2:
+
+      // There are many ways to pick a DOM node; here we get the form itself and the email
+// input box, as well as the span element into which we will place the error message.
+const form = document.getElementById("emailForm");
+const email2 = document.getElementById("mail2");
+const emailError = document.querySelector("#mail2 + span.error");
+
+email2.addEventListener("input", (event) => {
+  // Each time the user types something, we check if the
+  // form fields are valid.
+
+  if (email2.validity.valid) {
+    // In case there is an error message visible, if the field
+    // is valid, we remove the error message.
+    emailError.textContent = ""; // Reset the content of the message
+    emailError.className = "error"; // Reset the visual state of the message
+  } else {
+    // If there is still an error, show the correct error
+    showError();
+  }
+});
+
+form.addEventListener("submit", (event) => {
+  // if the email field is valid, we let the form submit
+  if (!email2.validity.valid) {
+    // If it isn't, we display an appropriate error message
+    showError();
+    // Then we prevent the form from being sent by canceling the event
+    event.preventDefault();
+  }
+});
+
+function showError() {
+  if (email2.validity.valueMissing) {
+    // If the field is empty,
+    // display the following error message.
+    emailError.textContent = "You need to enter an e-mail address.";
+  } else if (email2.validity.typeMismatch) {
+    // If the field doesn't contain an email address,
+    // display the following error message.
+    emailError.textContent = "Entered value needs to be an e-mail address.";
+  } else if (email2.validity.tooShort) {
+    // If the data is too short,
+    // display the following error message.
+    emailError.textContent = `Email should be at least ${email2.minLength} characters; you entered ${email.value.length}.`;
+  }
+
+  // Set the styling appropriately
+  emailError.className = "error active";
+}
+//for form 3
+const form3 = document.getElementById("form3");
+const email3 = document.getElementById("mail3");
+const error = email3.nextElementSibling;
+
+// As per the HTML Specification
+const emailRegExp =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+// Now we can rebuild our validation constraint
+// Because we do not rely on CSS pseudo-class, we have to
+// explicitly set the valid/invalid class on our email field
+window.addEventListener("load", () => {
+  // Here, we test if the field is empty (remember, the field is not required)
+  // If it is not, we check if its content is a well-formed e-mail address.
+  const isValid = email3.value.length === 0 || emailRegExp.test(email3.value);
+  email3.className = isValid ? "valid" : "invalid";
+});
+
+// This defines what happens when the user types in the field
+email3.addEventListener("input", () => {
+  const isValid = email3.value.length === 0 || emailRegExp.test(email3.value);
+  if (isValid) {
+    email3.className = "valid";
+    error.textContent = "";
+    error.className = "error";
+  } else {
+    email3.className = "invalid";
+  }
+});
+
+// This defines what happens when the user tries to submit the data
+form3.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const isValid = email3.value.length === 0 || emailRegExp.test(email3.value);
+  if (!isValid) {
+    email3.className = "invalid";
+    error.textContent = "I expect an e-mail, darling!";
+    error.className = "error active";
+  } else {
+    email3.className = "valid";
+    error.textContent = "";
+    error.className = "error";
+  }
+});
+    </script>
+  </body>
+</html>
