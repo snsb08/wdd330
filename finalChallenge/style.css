@@ -1,0 +1,117 @@
+/* -----GENERAL---------------------- */
+:root {
+    --primary-color:rgb(48, 48, 146);
+    --secondary-color:#BB9762 ;
+    --font_color: white;
+    --accent-color1: #CD304A;
+    --accent-color2: #eace2d;
+    --accent-color3: #B98145;
+}
+
+body{
+    background-image: url("images/back_pattern.png");
+}
+
+#content {
+    
+    /* border: solid black; */
+    background-color: var(--primary-color);
+    color: var(--accent-color2);
+    margin-top: 2rem;
+    padding: 3rem;
+    
+}
+
+#content, footer{
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+button {
+    padding: 1rem;
+    border-radius: 2rem;
+    background-image: linear-gradient(to right, var(--accent-color1), var(--accent-color2));
+    margin-top: 1rem;
+
+}
+
+/* --Footer-------------*/
+footer{
+    background-color: var(--accent-color3);
+    padding: 0.3rem 3rem ;
+}
+
+/* -.-HOME-.-.................................................. */
+
+#homeGrid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+/* .pokeBackground {
+    color: black;
+    background-image: url("images/back_pattern.png");
+} */
+
+/* -.-MEMORY-.-................................................ */
+
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 300px;
+    width: 50%;
+    gap: 0.5rem;*/
+    margin: 0 auto; 
+     /* height: 300px; */
+     width: 400px;
+     gap: 0.5rem;
+     
+}
+
+/* .grid img{
+    width: 30%;
+} */
+
+
+/* .memoryContent{
+    display: flex;
+    
+} */
+
+/* -.-HANGMAN-.-............................................... */
+
+#rocket2pika{
+    padding: 2rem;
+    width: 70%;
+    
+}
+
+.instructions{
+    width: 50%;
+    margin: 0 auto;
+    background-color: var(--accent-color2);
+    color: #9B2438;
+    padding: 1rem;
+}
+
+#pokeImg img{
+    width: 150px;
+}
+
+#keyboard {
+    max-width: 600px ;
+    margin: 0 auto;
+}
+
+.formBtn{
+    padding: 0.5rem;
+}
+
+#nameList {
+    text-align: left;
+    width: 300px;
+    margin: 0 auto;
+}

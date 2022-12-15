@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Hangman</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="content">
+      <h1>Pokemon Hangman</h1>
+
+      <p class="instructions">
+        Team Rocket wants to capture Pikachu. <br />
+        Don't let them get to him by guessing the correct word.
+      </p>
+      <img src="./images/team2pika1.jpg" alt="" id="rocket2pika" />
+      <p>hint: It is a Pokemon name.</p>
+      <div>
+        Guesses: <span id="guessAmount">0</span> of
+        <span id="guessLeft"></span>
+      </div>
+      <div id="pokeImg"></div>
+      <div id="word2guess">_ _ _ _ _ _ _</div>
+      <div id="keyboard">A B C ... Y X Z</div>
+      <button onClick="reset()">Play Again</button>
+      <a href="pokemon.html"><button>Back Home</button></a>
+      <h4 id="yourScore"></h4>
+      <form action="" id="highScoreForm">
+        <input type="text" id="newListInput" placeholder="your name here" />
+        <button class="formBtn">+</button>
+      </form>
+      <h2>High Scores</h2>
+      <ol id="nameList"></ol>
+    </div>
+
+    <footer>
+      <p>2022| Sheyla Norton |WDD330 Final Project</p>
+    </footer>
+    <script src="hangman_copy3.js"></script>
+    <!-- <script src="main.js" type="module"></script> -->
+    <!-- <script src="nameForm.js"></script> -->
+  </body>
+</html>
