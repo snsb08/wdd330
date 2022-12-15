@@ -36,6 +36,32 @@ button {
 
 }
 
+button:hover {
+    box-shadow: 0 0 20px var(--accent-color2);
+    background-image: linear-gradient(to right, var(--accent-color3), var(--accent-color2));
+}
+
+#homeTitle {
+    animation: title 10s 1 forwards;
+}
+
+@keyframes title {
+    0% {
+      color: #68e6dbbb;
+      font-size: 1rem;
+    }
+  
+    50% {
+      color: var(--accent-color2);
+      font-size: 2.5rem;
+    }
+  
+    100% {
+      color: var(--accent-color3)
+      
+    }
+  }
+
 /* --Footer-------------*/
 footer{
     background-color: var(--accent-color3);
